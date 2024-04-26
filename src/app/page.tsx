@@ -6,12 +6,12 @@ export default async function Home() {
   const movies = allMovies.slice(0, 10);
   return (
     <>
-    <div className='px-2 flex flex-col'>
-      <Header />
-        <main className='flex-1 flex items-center'>
+      <div className="flex flex-col px-2">
+        <Header />
+        <main className="flex flex-1 items-center">
           <MovieList movies={movies} />
         </main>
-    </div>
+      </div>
     </>
   );
 }
