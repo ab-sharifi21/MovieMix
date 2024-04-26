@@ -16,7 +16,7 @@ export const RouteItem = ({ href, text, icon }: RouteItemProps) => {
   return (
     <Link
       href={href}
-      className={`inline-flex w-full items-center space-x-2 rounded-sm text-white/50 border-slate-700 px-2 py-1 transition duration-150 ease-linear hover:border-b hover:bg-white/5 ${(pathName === href) && 'bg-primaryColor text-slate-700'} `}
+      className={`inline-flex w-full items-center space-x-2 rounded-sm border-slate-700 px-2 py-1 text-white/50 transition duration-150 ease-linear hover:border-b hover:bg-white/5 ${pathName === href && 'bg-primaryColor text-slate-700'} `}
     >
       {icon ? icon : <FaArrowRight />}
       <div className="flex flex-col">

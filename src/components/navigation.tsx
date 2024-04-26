@@ -46,18 +46,23 @@ const routes: Route[] = [
 export const Navigation = ({ children }: any) => {
   return (
     <>
-      <div className="h-screen w-screen overflow-y-scroll antialiased">
-        <div className="flex">
-          <div
+          <nav
             id="menu"
-            className="relative left-0 z-10 h-screen min-h-screen w-64 overflow-y-scroll bg-gray-900 text-slate-300"
+            style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(155, 155, 155, 0.5) rgba(0, 0, 0, 0.1)' }}
+            className="sticky flex flex-col top-0 left-0 z-10 h-screen min-h-screen w-64 overflow-y-scroll  bg-gray-900 text-slate-300"
           >
             <div id="logo" className="my-4 px-6">
-              <Link href="/" className="text-lg font-bold text-white md:text-2xl flex gap-2">
-                MovieMix<span className="text-blue-500"><GiFilmProjector /></span>
+              <Link
+                href="/"
+                className="flex gap-2 text-lg font-bold text-white md:text-2xl"
+              >
+                MovieMix
+                <span className="text-blue-500">
+                  <GiFilmProjector />
+                </span>
               </Link>
               <p className="text-sm text-slate-300">
-              Discover endless movies at your fingertips.
+                Discover endless movies at your fingertips.
               </p>
             </div>
 
@@ -66,31 +71,29 @@ export const Navigation = ({ children }: any) => {
               <h3 className="m-3 text-lg font-bold text-white">Genres</h3>
             </div>
 
-            <div id="nav" className="w-full px-6">
+            <div id="nav" className="w-full flex-1 px-6">
               {routes.map((route) => {
                 return <RouteItem key={route.id} {...route} />;
               })}
             </div>
-            <div className="absolute bottom-4 left-4 flex gap-3 px-6">
+
+            <div className="flex w-full justify-center gap-4 p-4">
               <Link
                 href="https://github.com/ab-sharifi21"
                 target="_blank"
-                className="text-white/70 hover:scale-110 duration-300 hover:text-primaryColor"
+                className="text-white/70 duration-300 hover:scale-110 hover:text-primaryColor"
               >
                 <BsGithub className="h-6 w-5" />
               </Link>
               <Link
                 href="https://www.linkedin.com/in/abdullahsharifi/"
                 target="_blank"
-                className="text-white/70 hover:scale-110 duration-300 hover:text-primaryColor"
+                className="text-white/70 duration-300 hover:scale-110 hover:text-primaryColor"
               >
                 <FaLinkedin className="h-6 w-5" />
               </Link>
             </div>
-          </div>
-          {children}
-        </div>
-      </div>
+          </nav>
     </>
   );
 };

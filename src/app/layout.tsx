@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Navigation } from "@/components";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Navigation } from '@/components';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Next Movie App",
-  description: "Movie app created with Next.js",
+  title: 'MovieMix',
+  description: 'Movie app created with Next.js',
 };
 
 export default function RootLayout({
@@ -17,10 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navigation>{children}
-        </Navigation>
-        </body>
+      <body className={`${inter.className} flex bg-bgColor`}>
+        <Navigation></Navigation>
+        {children}
+      </body>
     </html>
   );
 }
