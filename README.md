@@ -1,5 +1,7 @@
 # Movie App with Next.js
 
+<Img src="./src/assets/home.png" />
+
 ## About the project
 
 It's a movie app built with Next.js
