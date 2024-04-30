@@ -1,16 +1,17 @@
-import { Movie } from '@/types/types';
-import { MovieCard } from './index';
+import { Genre, Movie } from '@/types/types';
+import { MovieItem } from './movie-item';
 
 interface MovieListProps {
   movies: Movie[];
+  genres: Genre[];
 }
 
-export const MovieList = ({ movies }: MovieListProps) => {
+export const MovieList = ({ movies, genres }: MovieListProps) => {
   return (
-    <section className="flex">
+    <ul>
       {movies.map((movie) => {
-        return <MovieCard key={movie.id} movie={movie} />;
+        return <MovieItem key={movie.id} />;
       })}
-    </section>
+    </ul>
   );
 };

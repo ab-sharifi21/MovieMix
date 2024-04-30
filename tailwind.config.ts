@@ -12,6 +12,9 @@ const config: Config = {
         primaryColor: '#F5C61C',
         bgColor: '#4A4C5C',
       },
+      flexGrow: {
+        5: '5',
+      },
     },
   },
   plugins: [],
