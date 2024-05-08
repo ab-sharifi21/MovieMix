@@ -27,7 +27,6 @@ function Content({ movies, genres }: Props) {
     <>
       <AnimatePresence>
         <BackgroundImage
-          transitionData={transitionData}
           currentSlideData={currentSlideData}
         />
         <div className="absolute z-2 h-full w-full">
