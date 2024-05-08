@@ -11,7 +11,8 @@ It's a movie app built with Next.js
 - Clone the repository:
 
 ```JavaScript
-git clone git@github.com:ab-sharifi21/next-movie-app.git
+git clone git clone git@github.com:ab-sharifi21/MovieMix.git
+
 ```
 
 - Install the dependencies

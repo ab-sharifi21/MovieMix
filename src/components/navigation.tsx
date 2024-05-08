@@ -82,7 +82,7 @@ export const Navigation = ({ children }: any) => {
 
         <div className="flex w-full justify-center gap-4 p-4">
           <Link
-            href="https://github.com/ab-sharifi21"
+            href="https://github.com/ab-sharifi21/MovieMix"
             target="_blank"
             className="text-white/70 duration-300 hover:scale-110 hover:text-primaryColor"
           >
