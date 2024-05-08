@@ -1,7 +1,7 @@
 'use server';
-export const fetcher = async (path: string) => {
+export const fetcher = async (path: string, query?: string) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/${path}?api_key=${process.env.API_KEY}`,
+    `https://api.themoviedb.org/3/${path}?api_key=${process.env.API_KEY}&query=${query}`,
   );
   const data = await response.json();
 

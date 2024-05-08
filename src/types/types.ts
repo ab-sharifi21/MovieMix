@@ -28,3 +28,8 @@ export interface Genre {
   id: number;
   name: string;
 }
+
+export interface CurrentSlideData {
+  data: Movie;
+  index: number;
+}
