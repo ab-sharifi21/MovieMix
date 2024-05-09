@@ -14,7 +14,7 @@ const routes: Route[] = [
   {
     id: 2,
     text: 'Comedies',
-    href: '/comedies',
+    href: '/comedy',
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const routes: Route[] = [
   {
     id: 4,
     text: 'Documentaries',
-    href: '/documentaries',
+    href: '/documentary',
   },
   {
     id: 5,
@@ -33,14 +33,64 @@ const routes: Route[] = [
   },
   {
     id: 6,
-    text: 'Anime',
-    href: '/anime',
-  },
-  {
-    id: 7,
     text: 'Fantasy',
     href: '/fantasy',
   },
+  {
+    id: 7,
+    text: 'Adventure',
+    href: '/adventure'
+  },
+  {
+    id: 8,
+    text: 'Animation',
+    href: '/animation'
+  },
+  {
+    id: 9,
+    text: 'Crime',
+    href: '/crime'
+  },
+  {
+    id: 10,
+    text: 'Drama',
+    href: '/drama'
+  },
+  {
+    id: 11,
+    text: 'Family',
+    href: '/family'
+  },
+  {
+    id: 12,
+    text: 'History',
+    href: '/history'
+  },
+  {
+    id: 13,
+    text: 'Music',
+    href: '/music'
+  },
+  {
+    id: 14,
+    text: 'Mystery',
+    href: '/mystery'
+  },
+  {
+    id: 15,
+    text: 'War',
+    href: '/war'
+  },
+  {
+    id: 16,
+    text: 'Western',
+    href: '/western'
+  },
+  {
+    id: 17,
+    text: 'Thriller',
+    href: '/thriller'
+  }
 ];
 
 export const Navigation = ({ children }: any) => {

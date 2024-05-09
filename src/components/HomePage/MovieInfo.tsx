@@ -100,18 +100,22 @@ export const MovieInfo = ({ movie, genres }: Props) => {
         </motion.div>
       </motion.div>
 
-      <motion.div className="flex mx-2">
+      <motion.div className="mx-2 flex">
         <button
-          className="flex gap-1 items-center text-sm font-semibold cursor-pointer border border-white/50 text-black py-1 px-2 bg-primaryColor rounded-md hover:scale-105 duration-300"
+          className="flex cursor-pointer items-center gap-1 rounded-md border border-white/50 bg-primaryColor px-2 py-1 text-sm font-semibold text-black duration-300 hover:scale-105"
           onClick={openModal}
         >
-          <FaCirclePlay className='h-4 w-4' />
-        <span>Trailer</span>
+          <FaCirclePlay className="h-4 w-4" />
+          <span>Trailer</span>
         </button>
       </motion.div>
-        {isModalOpen && (
-          <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} trailer={trailer} />
-        )}
+      {isModalOpen && (
+        <Modal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          trailer={trailer}
+        />
+      )}
     </motion.div>
   );
 };

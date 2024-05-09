@@ -26,10 +26,8 @@ function Content({ movies, genres }: Props) {
   return (
     <>
       <AnimatePresence>
-        <BackgroundImage
-          currentSlideData={currentSlideData}
-        />
-        <div className="absolute z-2 h-full w-full">
+        <BackgroundImage currentSlideData={currentSlideData} />
+        <div className="z-2 absolute h-full w-full">
           <Header />
           <div className="flex h-full w-full grid-cols-10 flex-col md:grid">
             <div className="col-span-4 mb-3 flex h-full flex-1 flex-col justify-end px-5 md:mb-0 md:justify-center md:px-10">
@@ -38,7 +36,7 @@ function Content({ movies, genres }: Props) {
                 genres={genres}
               />
             </div>
-            <div className=" col-span-6 flex h-full flex-1 flex-col justify-start p-4 md:justify-end md:ml-2 md:p-6">
+            <div className=" col-span-6 flex h-full flex-1 flex-col justify-start p-4 md:ml-2 md:justify-end md:p-6">
               <Slides movies={data} />
               <Controls
                 currentSlideData={currentSlideData}
