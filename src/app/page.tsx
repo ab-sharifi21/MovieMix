@@ -1,4 +1,4 @@
-import Content from '@/components/Content';
+import Content from '@/components/HomePage/Content';
 import { getAllMovies } from '@/functions/getAllMovies';
 import { getMoviesGenres } from '@/functions/getMovieGenres';
 

@@ -1,5 +1,4 @@
 'use client';
-import { Header } from '@/components';
 import { AnimatePresence } from 'framer-motion';
 import BackgroundImage from './BackgroundImage';
 import Slides from './Slides';
@@ -7,6 +6,7 @@ import Controls from './Controls';
 import { useState } from 'react';
 import { CurrentSlideData, Genre, Movie } from '@/types/types';
 import { MovieInfo } from './MovieInfo';
+import { Header } from './header';
 
 interface Props {
   movies: Movie[];
