@@ -11,6 +11,14 @@ interface GenreHomePageProps {
   };
 }
 
+export async function generateMetadata({ params }: GenreHomePageProps) {
+  const {genre} = params;
+  return {
+    title: `${genre.charAt(0).toUpperCase() + genre.slice(1)} movies`,
+    description: `${genre} page created with next.js`
+  }
+}
+
 const GenreHomePage = async ({ params }: GenreHomePageProps) => {
   const { genre: genreName } = params;
   const { genres } = await getMoviesGenres();
@@ -30,8 +38,8 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
 
 
   return (
-    <div className="flex w-full flex-col px-2 text-white">
-      <header className="sticky top-0 right-0 z-30 flex w-full justify-between rounded-bl-md rounded-br-md bg-black/30 px-4 py-3 ">
+    <div className="flex w-full flex-col text-white">
+      <header className="sticky top-0 right-0 z-30 flex w-full justify-between bg-black/30 px-4 py-3 ">
         <div className="flex items-center gap-1 text-sm font-semibold uppercase">
           <p className="rounded-md bg-primaryColor p-1 text-black">
             Top {genreName}
@@ -43,7 +51,7 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
         </Link>
       </header>
 
-      <main className="my-3">
+      <main className="my-3 px-2">
         <MovieList movies={allMovies} />
       </main>
     </div>
