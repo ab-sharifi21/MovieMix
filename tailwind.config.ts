@@ -10,7 +10,6 @@ const config: Config = {
     extend: {
       colors: {
         primaryColor: '#F5C61C',
-        bgColor: '#252422',
       },
       flexGrow: {
         5: '5',

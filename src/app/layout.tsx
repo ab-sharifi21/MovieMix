@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex bg-bgColor`}>
+      <body className={`${inter.className} flex bg-gray-800`}>
         <Navigation />
         {children}
       </body>

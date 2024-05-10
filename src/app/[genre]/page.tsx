@@ -19,11 +19,19 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
     (genre: Genre) => genre.name.toLowerCase() === genreName,
   ).id;
 
-  const {results: moviesByGenre}: {results: Movie[]} = await getMoviesByGenre(`&with_genres=${genreId}`)
+  let allMovies: Movie[] = []
+  let currentPage: number = 1
+
+  while(currentPage <= 10) {
+    const {results: moviesByGenre}: {results: Movie[]} = await getMoviesByGenre(`&with_genres=${genreId}&page=${currentPage}`)
+    allMovies = allMovies.concat(moviesByGenre);
+    currentPage++
+  }
+
 
   return (
     <div className="flex w-full flex-col px-2 text-white">
-      <header className="mt-2 flex w-full justify-between bg-transparent p-2">
+      <header className="sticky top-0 right-0 z-30 flex w-full justify-between rounded-bl-md rounded-br-md bg-black/30 px-4 py-3 ">
         <div className="flex items-center gap-1 text-sm font-semibold uppercase">
           <p className="rounded-md bg-primaryColor p-1 text-black">
             Top {genreName}
@@ -36,7 +44,7 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
       </header>
 
       <main className="my-3">
-        <MovieList movies={moviesByGenre} />
+        <MovieList movies={allMovies} />
       </main>
     </div>
   );

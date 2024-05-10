@@ -19,7 +19,7 @@ export const MovieItem = ({ movie }: MovieItemProps) => {
           priority={false}
           className="h-full w-full rounded-lg saturate-[1.1]"
         />
-        <div className='group-hover:block absolute bottom-3 left-4'>
+        <div className='group-hover:block absolute bottom-0 left-0 p-4'>
             <p className='text-sm font-semibold text-slate-100'>{movie.title}</p>
             <p className='text-xs text-slate-300'>{movie.release_date}</p>
         </div>
