@@ -18,7 +18,7 @@ export const RouteItem = ({ href, text, icon }: RouteItemProps) => {
       href={href}
       className={`inline-flex w-full items-center space-x-2 rounded-sm border-slate-700 px-2 py-1 transition duration-150 ease-linear hover:border-b hover:bg-white/5 ${pathName === href && 'bg-primaryColor text-black'} `}
     >
-      {icon ? icon : <FaArrowRight className='hidden md:block' />}
+      {icon ? icon : <FaArrowRight className="hidden md:block" />}
       <div className="flex flex-col">
         <span className="text-sm">{text}</span>
       </div>

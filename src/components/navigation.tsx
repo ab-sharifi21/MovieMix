@@ -39,58 +39,58 @@ const routes: Route[] = [
   {
     id: 7,
     text: 'Adventure',
-    href: '/adventure'
+    href: '/adventure',
   },
   {
     id: 8,
     text: 'Animation',
-    href: '/animation'
+    href: '/animation',
   },
   {
     id: 9,
     text: 'Crime',
-    href: '/crime'
+    href: '/crime',
   },
   {
     id: 10,
     text: 'Drama',
-    href: '/drama'
+    href: '/drama',
   },
   {
     id: 11,
     text: 'Family',
-    href: '/family'
+    href: '/family',
   },
   {
     id: 12,
     text: 'History',
-    href: '/history'
+    href: '/history',
   },
   {
     id: 13,
     text: 'Music',
-    href: '/music'
+    href: '/music',
   },
   {
     id: 14,
     text: 'Mystery',
-    href: '/mystery'
+    href: '/mystery',
   },
   {
     id: 15,
     text: 'War',
-    href: '/war'
+    href: '/war',
   },
   {
     id: 16,
     text: 'Western',
-    href: '/western'
+    href: '/western',
   },
   {
     id: 17,
     text: 'Thriller',
-    href: '/thriller'
-  }
+    href: '/thriller',
+  },
 ];
 
 export const Navigation = ({ children }: any) => {

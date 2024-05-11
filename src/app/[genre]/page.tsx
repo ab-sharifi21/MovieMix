@@ -12,11 +12,11 @@ interface GenreHomePageProps {
 }
 
 export async function generateMetadata({ params }: GenreHomePageProps) {
-  const {genre} = params;
+  const { genre } = params;
   return {
     title: `${genre.charAt(0).toUpperCase() + genre.slice(1)} movies`,
-    description: `${genre} page created with next.js`
-  }
+    description: `${genre} page created with next.js`,
+  };
 }
 
 const GenreHomePage = async ({ params }: GenreHomePageProps) => {
@@ -27,19 +27,19 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
     (genre: Genre) => genre.name.toLowerCase() === genreName,
   ).id;
 
-  let allMovies: Movie[] = []
-  let currentPage: number = 1
+  let allMovies: Movie[] = [];
+  let currentPage: number = 1;
 
-  while(currentPage <= 10) {
-    const {results: moviesByGenre}: {results: Movie[]} = await getMoviesByGenre(`&with_genres=${genreId}&page=${currentPage}`)
+  while (currentPage <= 10) {
+    const { results: moviesByGenre }: { results: Movie[] } =
+      await getMoviesByGenre(`&with_genres=${genreId}&page=${currentPage}`);
     allMovies = allMovies.concat(moviesByGenre);
-    currentPage++
+    currentPage++;
   }
-
 
   return (
     <div className="flex w-full flex-col text-white">
-      <header className="sticky top-0 right-0 z-30 flex w-full justify-between bg-black/30 px-4 py-3 ">
+      <header className="sticky right-0 top-0 z-30 flex w-full justify-between bg-black/30 px-4 py-3 ">
         <div className="flex items-center gap-1 text-sm font-semibold uppercase">
           <p className="rounded-md bg-primaryColor p-1 text-black">
             Top {genreName}
