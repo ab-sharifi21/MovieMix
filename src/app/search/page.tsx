@@ -1,9 +1,8 @@
-import { Metadata } from "next";
-
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
- title: 'Search page',
- description: 'Search page description',
+  title: 'Search page',
+  description: 'Search page description',
 };
 
 export default function SearchPage() {

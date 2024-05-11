@@ -1,13 +1,13 @@
+'use client'
 import { motion } from 'framer-motion';
 import { Genre, Movie } from '@/types/types';
 import { getOneMovieGenres } from '@/functions/getOneMovieGenre';
 import { getOneMovieTrailers } from '@/functions/getOneMovieTrailer';
 import { useEffect, useState } from 'react';
-import { Modal } from './Modal';
-import { FaCirclePlay } from 'react-icons/fa6';
+import { Trailer } from '../Trailer';
 
 type Props = {
-  movie: Movie;
+  movie: Movie | any;
   genres: Genre[];
 };
 const item = {
@@ -23,11 +23,6 @@ const item = {
 
 export const MovieInfo = ({ movie, genres }: Props) => {
   const [trailer, setTrailer] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
 
   const movieGenres = getOneMovieGenres(movie, genres);
 
@@ -66,7 +61,7 @@ export const MovieInfo = ({ movie, genres }: Props) => {
         data={movie.release_date}
       />
       <AnimatedText
-        className="my-1 text-3xl font-semibold"
+        className="my-1 text-3xl max-w-sm font-semibold"
         data={movie.title}
       />
       <AnimatedText
@@ -100,22 +95,7 @@ export const MovieInfo = ({ movie, genres }: Props) => {
         </motion.div>
       </motion.div>
 
-      <motion.div className="mx-2 flex">
-        <button
-          className="flex cursor-pointer items-center gap-1 rounded-md border border-white/50 bg-primaryColor px-2 py-1 text-sm font-semibold text-black duration-300 hover:scale-105"
-          onClick={openModal}
-        >
-          <FaCirclePlay className="h-4 w-4" />
-          <span>Trailer</span>
-        </button>
-      </motion.div>
-      {isModalOpen && (
-        <Modal
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-          trailer={trailer}
-        />
-      )}
+      <Trailer trailer={trailer} />
     </motion.div>
   );
 };

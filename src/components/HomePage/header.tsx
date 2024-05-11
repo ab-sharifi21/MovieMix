@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState<String>('');
 
   const handleFormChange = (e: any) => {
-    e.preventDefault()
+    e.preventDefault();
     setSearchValue(e.target.value);
-  }
+  };
 
   console.log(searchValue);
   return (
@@ -22,7 +22,7 @@ export const Header = () => {
           type="text"
           placeholder="Search..."
           onChange={handleFormChange}
-          className="border-bg-gray-900 rounded-2xl border border-primaryColor bg-gray-600 w-[10rem] px-4 duration-300 focus:w-[20rem] py-1 text-white placeholder:text-sm placeholder-white place-content-center caret-primaryColor text-sm outline-none"
+          className="border-bg-gray-900 w-[10rem] place-content-center rounded-2xl border border-primaryColor bg-gray-600 px-4 py-1 text-sm text-white placeholder-white caret-primaryColor outline-none duration-300 placeholder:text-sm focus:w-[20rem]"
         />
       </header>
     </>
