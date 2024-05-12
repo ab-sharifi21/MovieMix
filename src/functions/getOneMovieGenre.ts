@@ -3,7 +3,7 @@ import { Genre, Movie } from '@/types/types';
 export const getOneMovieGenres = (movie: Movie | any, genres: Genre[]) => {
   const movieGenres: Genre[] = [];
 
-  if(movie.genre_ids) {
+  if (movie.genre_ids) {
     movie.genre_ids.forEach((genreId: any) => {
       const genre: any = genres.find((genre) => genre.id === genreId);
       if (genre) {
@@ -11,7 +11,7 @@ export const getOneMovieGenres = (movie: Movie | any, genres: Genre[]) => {
       }
     });
   } else {
-    movieGenres.push(...movie.genres)
+    movieGenres.push(...movie.genres);
   }
 
   return movieGenres.slice(0, 3);

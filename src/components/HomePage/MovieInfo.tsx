@@ -1,10 +1,11 @@
-'use client'
+'use client';
 import { motion } from 'framer-motion';
 import { Genre, Movie } from '@/types/types';
 import { getOneMovieGenres } from '@/functions/getOneMovieGenre';
 import { getOneMovieTrailers } from '@/functions/getOneMovieTrailer';
 import { useEffect, useState } from 'react';
 import { Trailer } from '../Trailer';
+import { FaRegClock } from 'react-icons/fa';
 
 type Props = {
   movie: Movie | any;
@@ -61,11 +62,11 @@ export const MovieInfo = ({ movie, genres }: Props) => {
         data={movie.release_date}
       />
       <AnimatedText
-        className="my-1 text-3xl max-w-sm font-semibold"
+        className="my-1 max-w-sm text-3xl font-semibold"
         data={movie.title}
       />
       <AnimatedText
-        className="max-w-xs rounded-md bg-black/20 p-2 text-sm shadow-lg"
+        className={`${movie.runtime ? 'max-w-sm' : 'max-w-xs'} rounded-md bg-black/20 p-2 text-sm shadow-lg`}
         data={movie.overview}
       />
       <motion.div className="my-1 flex gap-2 p-2 text-sm">
@@ -95,7 +96,16 @@ export const MovieInfo = ({ movie, genres }: Props) => {
         </motion.div>
       </motion.div>
 
-      <Trailer trailer={trailer} />
+      <motion.div className="flex ">
+        <Trailer trailer={trailer} />
+        {movie.runtime && (
+          <div className="flex items-center gap-1">
+            <span className="text-sm font-semibold">Duration:</span>
+            <span className="text-sm text-slate-300">{movie.runtime} mins</span>
+            <FaRegClock className="text-primaryColor" />
+          </div>
+        )}
+      </motion.div>
     </motion.div>
   );
 };

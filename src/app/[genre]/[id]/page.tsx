@@ -2,6 +2,8 @@ import { MovieInfo } from '@/components/HomePage/MovieInfo';
 import { getMovieActors } from '@/functions/getMovieActors';
 import { getMovieById } from '@/functions/getMovieById';
 import { MovieCredits, MovieDetail } from '@/types/types';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface MoviePageProps {
   params: {
@@ -21,14 +23,19 @@ export default async function MoviePage({ params }: MoviePageProps) {
   const { id: movieId } = params;
 
   const movieDetail: MovieDetail = await getMovieById(movieId);
-  const { cast: movieActors }: MovieCredits = await getMovieActors(movieId);
+  const { crew, cast: movieActors }: MovieCredits =
+    await getMovieActors(movieId);
 
   const {
     backdrop_path,
     genres,
+    poster_path,
+    title,
+    original_language,
+    origin_country,
+    homepage,
+    status,
   } = movieDetail;
-
-  console.log(genres);
 
   return (
     <div className="w-full flex-col text-white">
@@ -38,10 +45,58 @@ export default async function MoviePage({ params }: MoviePageProps) {
         }}
         className="relative h-screen w-full bg-cover bg-no-repeat"
       >
-        <div className="absolute bottom-0 left-0 p-6">
+        <div className="absolute bottom-0 left-0 flex w-full items-end justify-between p-6">
           <MovieInfo movie={movieDetail} genres={genres} />
 
-          <div></div>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1 text-black">
+              <h2 className="rounded-md bg-primaryColor p-1 text-sm font-semibold">
+                Director:
+              </h2>
+              <span className="text-sm text-slate-400">{crew[0].name}</span>
+            </div>
+            <div className="flex gap-2">
+              <p>
+                <span className="text-xs font-semibold text-slate-200">
+                  Original language:
+                </span>
+                <span className="text-xs text-slate-400">
+                  {' '}
+                  {original_language.toUpperCase()}
+                </span>
+              </p>
+              <p>
+                <span className="text-xs font-semibold text-slate-200">
+                  Origin country:
+                </span>
+                <span className="text-xs text-slate-400">
+                  {' '}
+                  {origin_country}
+                </span>
+              </p>
+            </div>
+            <p>
+              <span className="text-xs font-semibold text-slate-200">
+                Status:
+              </span>
+              <span className="text-xs text-slate-400"> {status}</span>
+            </p>
+            <Link
+              href={homepage}
+              target="_blank"
+              className="text-xs text-blue-500 hover:underline"
+            >
+              see more...
+            </Link>
+          </div>
+
+          <Image
+            src={`https://image.tmdb.org/t/p/w342${poster_path}`}
+            height={250}
+            width={220}
+            alt={`${title}' poster`}
+            className="rounded"
+          />
         </div>
       </div>
     </div>
