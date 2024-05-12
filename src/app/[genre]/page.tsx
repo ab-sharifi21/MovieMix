@@ -38,7 +38,7 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
   }
 
   return (
-    <div className="flex w-full flex-col text-white">
+    <div className="flex w-full flex-col text-white bg-black/45">
       <header className="sticky right-0 top-0 z-30 flex w-full justify-between bg-black/30 px-4 py-3 ">
         <div className="flex items-center gap-1 text-sm font-semibold uppercase">
           <p className="rounded-md bg-primaryColor p-1 text-black">
