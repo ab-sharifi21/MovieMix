@@ -1,6 +1,6 @@
 # Movie App with Next.js
 
-<Img src="./src/assets/home.png" />
+<Img src="./src/assets/movie-mix.png" />
 
 ## About the project
 
