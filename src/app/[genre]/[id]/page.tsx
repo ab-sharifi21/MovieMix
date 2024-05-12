@@ -1,7 +1,8 @@
+import { Carrousel } from '@/components/ActorsCarrousel';
 import { MovieInfo } from '@/components/HomePage/MovieInfo';
 import { getMovieActors } from '@/functions/getMovieActors';
 import { getMovieById } from '@/functions/getMovieById';
-import { MovieCredits, MovieDetail } from '@/types/types';
+import { Cast, MovieCredits, MovieDetail } from '@/types/types';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -26,6 +27,14 @@ export default async function MoviePage({ params }: MoviePageProps) {
   const { crew, cast: movieActors }: MovieCredits =
     await getMovieActors(movieId);
 
+  const actorsImages: string[] = movieActors.map((actor: Cast) => {
+    return `https://image.tmdb.org/t/p/w342${actor.profile_path}`;
+  });
+
+  const actorsNames: any = movieActors.map((actor: Cast) => {
+    return { name: actor.name, character: actor.character };
+  });
+
   const {
     backdrop_path,
     genres,
@@ -39,7 +48,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
   return (
     <div className="w-full flex-col text-white">
-      <div
+      <section
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
         }}
@@ -98,7 +107,14 @@ export default async function MoviePage({ params }: MoviePageProps) {
             className="rounded"
           />
         </div>
-      </div>
+      </section>
+
+      <section className="flex w-full flex-col bg-black/40 px-3 py-6">
+        <h3 className="mb-6 text-xl font-semibold text-slate-300">
+          Meet some of the actors
+        </h3>
+        <Carrousel images={actorsImages} actorNames={actorsNames} />
+      </section>
     </div>
   );
 }

@@ -115,3 +115,8 @@ export interface Cast {
   department?: string;
   job?: string;
 }
+
+export interface NameCharacter {
+  name: string;
+  character: string;
+}
