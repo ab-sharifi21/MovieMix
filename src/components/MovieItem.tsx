@@ -13,12 +13,12 @@ export const MovieItem = ({ movie }: MovieItemProps) => {
   const pathName = usePathname();
   return (
     <Link href={`${pathName}/${movie.id}`}>
-      <div className="group relative h-[200px] w-[330px]">
+      <div className="group relative h-[210px] w-[345px]">
         <Image
           src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
           alt={`${movie.title}'s poster`}
-          width={330}
-          height={200}
+          width={345}
+          height={205}
           priority={false}
           className="h-full w-full rounded-lg saturate-[1.1]"
         />
