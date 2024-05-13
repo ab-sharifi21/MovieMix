@@ -39,8 +39,7 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
   }
 
   return (
-    <div className="flex w-full flex-col text-white bg-black/45">
-
+    <div className="flex w-full flex-col bg-black/45 text-white">
       <GenrePageHeader genreName={genreName} />
 
       <main className="my-3 px-2">
