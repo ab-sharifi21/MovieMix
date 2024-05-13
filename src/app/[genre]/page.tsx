@@ -4,6 +4,7 @@ import { getMoviesByGenre } from '@/functions/getMoviesByGenre';
 import Link from 'next/link';
 import { FaHome } from 'react-icons/fa';
 import { Genre, Movie } from '@/types/types';
+import { GenrePageHeader } from '@/components/GenrePageHeader';
 
 interface GenreHomePageProps {
   params: {
@@ -39,17 +40,8 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
 
   return (
     <div className="flex w-full flex-col text-white bg-black/45">
-      <header className="sticky right-0 top-0 z-30 flex w-full justify-between bg-black/30 px-4 py-3 ">
-        <div className="flex items-center gap-1 text-sm font-semibold uppercase">
-          <p className="rounded-md bg-primaryColor p-1 text-black">
-            Top {genreName}
-          </p>
-          <p className="text-primaryColor">Movies</p>
-        </div>
-        <Link href="/" title="Home">
-          <FaHome className="h-7 w-7 text-primaryColor transition-all duration-300 hover:scale-110 hover:text-white" />
-        </Link>
-      </header>
+
+      <GenrePageHeader genreName={genreName} />
 
       <main className="my-3 px-2">
         <MovieList movies={allMovies} />
