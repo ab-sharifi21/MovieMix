@@ -51,6 +51,11 @@ export const MovieInfo = ({ movie, genres }: Props) => {
     fetchTrailerData();
   }, [movie.id]);
 
+  const date = new Date(movie.release_date).getDate().toString() + '-' + new Date(movie.release_date).toLocaleString('default', {
+    month: 'long'
+  }).toString() + '-' + new Date(movie.release_date).getFullYear().toString();
+
+
   return (
     <motion.div
       initial="hidden"
@@ -59,7 +64,7 @@ export const MovieInfo = ({ movie, genres }: Props) => {
     >
       <AnimatedText
         className="spacing overflow-hidden text-sm"
-        data={movie.release_date}
+        data={date}
       />
       <AnimatedText
         className="my-1 max-w-sm text-3xl font-semibold"

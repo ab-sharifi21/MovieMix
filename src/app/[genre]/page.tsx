@@ -1,8 +1,6 @@
 import { MovieList } from '@/components/MovieList';
 import { getMoviesGenres } from '@/functions/getMovieGenres';
 import { getMoviesByGenre } from '@/functions/getMoviesByGenre';
-import Link from 'next/link';
-import { FaHome } from 'react-icons/fa';
 import { Genre, Movie } from '@/types/types';
 import { GenrePageHeader } from '@/components/GenrePageHeader';
 
@@ -39,7 +37,8 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
   }
 
   return (
-    <div className="flex w-full flex-col bg-black/45 text-white">
+    <div className="flex w-full flex-col text-white bg-black/45">
+
       <GenrePageHeader genreName={genreName} />
 
       <main className="my-3 px-2">
