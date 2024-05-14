@@ -51,10 +51,16 @@ export const MovieInfo = ({ movie, genres }: Props) => {
     fetchTrailerData();
   }, [movie.id]);
 
-  const date = new Date(movie.release_date).getDate().toString() + '-' + new Date(movie.release_date).toLocaleString('default', {
-    month: 'long'
-  }).toString() + '-' + new Date(movie.release_date).getFullYear().toString();
-
+  const date =
+    new Date(movie.release_date).getDate().toString() +
+    '-' +
+    new Date(movie.release_date)
+      .toLocaleString('default', {
+        month: 'long',
+      })
+      .toString() +
+    '-' +
+    new Date(movie.release_date).getFullYear().toString();
 
   return (
     <motion.div
@@ -62,10 +68,7 @@ export const MovieInfo = ({ movie, genres }: Props) => {
       animate={'visible'}
       className={`flex flex-col text-[#D5D5D6]`}
     >
-      <AnimatedText
-        className="spacing overflow-hidden text-sm"
-        data={date}
-      />
+      <AnimatedText className="spacing overflow-hidden text-sm" data={date} />
       <AnimatedText
         className="my-1 max-w-sm text-3xl font-semibold"
         data={movie.title}
