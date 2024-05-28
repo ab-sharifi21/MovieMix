@@ -1,8 +1,7 @@
-import { MovieList } from '@/components/MovieList';
 import { getMoviesGenres } from '@/functions/getMovieGenres';
-import { getMoviesByGenre } from '@/functions/getMoviesByGenre';
-import { Genre, Movie } from '@/types/types';
 import { GenrePageHeader } from '@/components/GenrePageHeader';
+import InfiniteScrollMovies from '@/components/InfiniteScrollMovies';
+import { getMoviesByGenre } from '@/functions/getMoviesByGenre';
 
 interface GenreHomePageProps {
   params: {
@@ -22,29 +21,28 @@ const GenreHomePage = async ({ params }: GenreHomePageProps) => {
   const { genre: genreName } = params;
   const { genres } = await getMoviesGenres();
 
-  const genreId = genres.find(
-    (genre: Genre) => genre.name.toLowerCase() === genreName,
-  ).id;
+  const genre = genres.find(
+    (genre: any) => genre.name.toLowerCase() === genreName,
+  );
 
-  let allMovies: Movie[] = [];
-  let currentPage: number = 1;
-
-  while (currentPage <= 10) {
-    const { results: moviesByGenre }: { results: Movie[] } =
-      await getMoviesByGenre(`&with_genres=${genreId}&page=${currentPage}`);
-    allMovies = allMovies.concat(moviesByGenre);
-    currentPage++;
+  if (!genre) {
+    return <div>Genre not found</div>;
   }
+
+  const { id: genreId } = genre;
+  const initialMovies = await fetchInitialMovies(genreId);
 
   return (
     <div className="flex w-full flex-col bg-black/45 text-white">
       <GenrePageHeader genreName={genreName} />
-
-      <main className="my-3 px-2">
-        <MovieList movies={allMovies} />
-      </main>
+      <InfiniteScrollMovies initialMovies={initialMovies} genreId={genreId} />
     </div>
   );
+};
+
+const fetchInitialMovies = async (genreId: string) => {
+  const { results: movies } = await getMoviesByGenre(`&with_genres=${genreId}&page=1`);
+  return movies;
 };
 
 export default GenreHomePage;
